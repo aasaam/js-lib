@@ -6,10 +6,12 @@ const { Calendar } = require('../lib/Calendar');
 
 const TEST_ENV = Environment.test();
 
-require('@formatjs/intl-locale/polyfill');
-require('@formatjs/intl-displaynames/polyfill');
-require('@formatjs/intl-displaynames/locale-data/en');
-require('@formatjs/intl-getcanonicallocales');
+if (!TEST_ENV) {
+  require('@formatjs/intl-locale/polyfill');
+  require('@formatjs/intl-displaynames/polyfill');
+  require('@formatjs/intl-displaynames/locale-data/en');
+  require('@formatjs/intl-getcanonicallocales');
+}
 
 const YEAR_OFFSET = 100;
 
