@@ -54,6 +54,30 @@ type DayWeekMonthItem = {
   weeks: WeekDay[],
 }
 
+type CountryInfoItem = {
+  id: CountryISOCode,
+  selected: boolean,
+  defaultLanguage: LanguageISOCode,
+  flag: string,
+  title: string,
+  titleNative: string,
+};
+
+type LanguageInfoItem = {
+  id: LanguageISOCode,
+  selected: boolean,
+  rtl: boolean,
+  title: string,
+  titleNative: string,
+};
+
+type CalendarInfoItem = {
+  id: CalendarSystem,
+  selected: boolean,
+  title: string,
+  titleShort: string,
+};
+
 interface RelativeTimeFormatOptions {
   localeMatcher?: string;
   numeric?: string;
@@ -136,29 +160,11 @@ export declare class Locale {
 
   public getWeekEnds(): number[];
 
-  public getCountryList(): {
-    id: CountryISOCode,
-    selected: boolean,
-    defaultLanguage: LanguageISOCode,
-    flag: string,
-    title: string,
-    titleNative: string,
-  }[];
+  public getCountryList(): CountryInfoItem[];
 
-  public getLanguageList(): {
-    id: LanguageISOCode,
-    selected: boolean,
-    rtl: boolean,
-    title: string,
-    titleNative: string,
-  }[];
+  public getLanguageList(): LanguageInfoItem[];
 
-  public getCalendarList(): {
-    id: CalendarSystem,
-    selected: boolean,
-    title: string,
-    titleShort: string,
-  }[];
+  public getCalendarList(): CalendarInfoItem[];
 }
 
 export declare const SUPPORTED_CALENDARS: CalendarSystem[];
