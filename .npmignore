@@ -5,6 +5,7 @@ tools/
 tmp/
 package-lock.json
 
+.github/
 test/
 docs/
 .editorconfig
