@@ -6,7 +6,7 @@ tmp/
 package-lock.json
 
 test/
-browser-test/
+docs/
 .editorconfig
 .eslintignore
 .eslintrc.json
