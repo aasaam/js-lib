@@ -1,0 +1,77 @@
+{
+  "name": "@aasaam/js-lib",
+  "version": "0.0.0",
+  "description": "aasaam javascript library",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aasaam/js-helper.git"
+  },
+  "keywords": [
+    "aasaam",
+    "calendar",
+    "locale",
+    "intl",
+    "l10n",
+    "i18n",
+    "flag",
+    "iso-3166-1",
+    "iso-639-1"
+  ],
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.spec.js"
+    ],
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "json",
+      "json-summary",
+      "text",
+      "lcov",
+      "html",
+      "clover"
+    ],
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "luxon": "^1"
+  },
+  "devDependencies": {
+    "@formatjs/intl-displaynames": "^4",
+    "@formatjs/intl-getcanonicallocales": "^1",
+    "@formatjs/intl-locale": "^2",
+    "@types/jest": "^26",
+    "@types/node": "14",
+    "browserify": "^17",
+    "chai": "^4",
+    "check-dts": "^0",
+    "eslint": "^7",
+    "eslint-config-airbnb": "^18",
+    "eslint-config-prettier": "^7",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-sonarjs": "^0",
+    "full-icu": "^1",
+    "jest": "^26",
+    "prettier": "^2"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "check-type": "check-dts",
+    "docs:locale-calendar-mocha": "browserify docs/locale-calendar-mocha.spec.js -d -o docs/locale-calendar-mocha.dist.js",
+    "docs:locale-calendar": "browserify docs/locale-calendar.js -d -o docs/locale-calendar.dist.js",
+    "docs:all": "npm run docs:locale-calendar && npm run docs:locale-calendar-mocha",
+    "test:cover": "jest --detectOpenHandles --runInBand --collectCoverage",
+    "test": "jest --detectOpenHandles --runInBand"
+  },
+  "authors": [
+    {
+      "name": "Muhammad Hussein Fattahizadeh",
+      "email": "m@mhf.ir"
+    }
+  ],
+  "license": "MIT"
+}

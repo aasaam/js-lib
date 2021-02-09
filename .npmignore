@@ -1,0 +1,14 @@
+.vscode/
+coverage/
+node_modules/
+tools/
+tmp/
+package-lock.json
+
+test/
+browser-test/
+.editorconfig
+.eslintignore
+.eslintrc.json
+.prettierrc
+.travis.yml

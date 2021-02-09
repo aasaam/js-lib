@@ -1,0 +1,5 @@
+coverage/
+docs/*.dist.js
+node_modules/
+tools/
+tmp/

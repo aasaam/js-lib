@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          node -v
+          npm -v
+          npm install -f
+          npm run lint
+          npm run check-type
+          npm run docs:all
+          npm run test:cover
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build GitHub Page
+        run: |
+          cd docs
+          rm -rf .gitignore
+          git init .
+          git config --global user.email "gh-page@nodomain.tld"
+          git config --global user.name "GitHub Action"
+          git add .
+          git commit -a -m "Documentation build on $(date)"
+          git branch -m gh-pages
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+          directory: docs
+          branch: gh-pages
