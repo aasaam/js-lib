@@ -2,7 +2,7 @@
 
 [![aasaam](https://img.shields.io/badge/aasaam-software%20development%20group-0277bd?style=flat-square)](https://github.com/aasaam)
 
-![github-workflow-status-build](https://img.shields.io/github/workflow/status/aasaam/js-lib/build?style=flat-square)
+[![github-workflow-status-build](https://img.shields.io/github/workflow/status/aasaam/js-lib/build?style=flat-square)](https://github.com/aasaam/js-lib/actions?query=workflow%3Abuild)
 [![coveralls](https://img.shields.io/coveralls/github/aasaam/js-lib?style=flat-square)](https://coveralls.io/github/aasaam/js-lib)
 [![dependencies](https://img.shields.io/david/aasaam/js-lib?style=flat-square)](https://david-dm.org/aasaam/js-lib)
 [![dev-dependencies](https://img.shields.io/david/dev/aasaam/js-lib?style=flat-square)](https://david-dm.org/aasaam/js-lib?type=dev)
