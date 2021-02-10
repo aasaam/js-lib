@@ -11,6 +11,7 @@ if (!TEST_ENV) {
   require('@formatjs/intl-locale/polyfill');
   require('@formatjs/intl-displaynames/polyfill');
   require('@formatjs/intl-displaynames/locale-data/en');
+  require('@formatjs/intl-displaynames/locale-data/fa');
   require('@formatjs/intl-getcanonicallocales');
 }
 
