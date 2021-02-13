@@ -10,6 +10,7 @@
 [![eslint-airbnb](https://img.shields.io/badge/eslint-airbnb-FF5A5F?logo=airbnb&style=flat-square)](https://github.com/airbnb/javascript)
 [![npm](https://img.shields.io/npm/v/@aasaam/js-lib?style=flat-square)](https://www.npmjs.com/package/@aasaam/js-lib)
 [![types](https://img.shields.io/npm/types/@aasaam/js-lib?style=flat-square)](https://www.npmjs.com/package/@aasaam/js-lib)
+[![quality-gate](https://sonarcloud.io/api/project_badges/quality_gate?project=aasaam_js-lib)](https://sonarcloud.io/dashboard?id=aasaam_js-lib)
 
 Utilities for build better stuff, such as:
 
