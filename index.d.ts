@@ -101,7 +101,7 @@ export declare class Calendar {
 
   public format(format: string, date?: Date): string;
 
-  public tokenize(tokens: string[], date?: Date): Number[]
+  public tokenize(tokens: string[], date?: Date): number[]
 
   public yearList(length?: number): YearListItem[];
 
