@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Locale and Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://aasaam.github.io/information/logo/icons/favicon.ico"
+    />
+  </head>
+
+  <body>
+    <div id="app" class="px-3">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-full">
+            <h1 class="py-2 is-size-1">
+              <a href="./locale-calendar.html">Test SandBox</a>
+              <sup class="tag is-success" v-if="supportable">Supported</sup>
+              <sup class="tag is-danger" v-else
+                >Not supported (using polyfills)</sup
+              >
+            </h1>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-3">
+            <h2 class="py-1 is-size-3">Manipulate it</h2>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <b-field label="Select Language">
+              <b-select
+                placeholder="Select Language"
+                v-model="lang"
+                @input="changeLang"
+              >
+                <option
+                  v-for="option in locale.getLanguageList()"
+                  :value="option.id"
+                  :key="option.id"
+                >
+                  {{ option.title }} [{{ option.titleNative }}]
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+          <div class="column is-4">
+            <b-field label="Select Country">
+              <b-select
+                placeholder="Select Country"
+                v-model="country"
+                @input="changeCountry"
+              >
+                <option
+                  v-for="option in locale.getCountryList()"
+                  :value="option.id"
+                  :key="option.id"
+                >
+                  {{ option.flag }} {{ option.title }} [{{ option.titleNative
+                  }}]
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+          <div class="column is-4">
+            <b-field label="Select Calendar">
+              <b-select
+                placeholder="Select Calendar"
+                v-model="calendar"
+                @input="changeCalendar"
+              >
+                <option
+                  v-for="option in locale.getCalendarList()"
+                  :value="option.id"
+                  :key="option.id"
+                >
+                  {{ option.title }} ({{ option.titleShort }}) [{{ option.id}}]
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="container">
+        <div class="columns">
+          <div class="column is-4">
+            <b-field label="Select Year">
+              <b-select
+                placeholder="Select Year"
+                v-model="year"
+                @input="yearChange"
+              >
+                <option
+                  v-for="option in years"
+                  :value="option.id"
+                  :key="option.id"
+                >
+                  {{ option.title }}
+                </option>
+              </b-select>
+            </b-field>
+            <button class="button" @click="yearShift(true)">🔺</button>
+            <button class="button" @click="yearShift(false)">🔻</button>
+          </div>
+          <div class="column is-4">
+            <b-field label="Select Month">
+              <b-select
+                placeholder="Select Month"
+                v-model="month"
+                @input="monthChange"
+              >
+                <option
+                  v-for="option in monthList"
+                  :value="option.id"
+                  :key="option.id"
+                >
+                  {{ option.titleNumber }}. {{ option.title }}
+                </option>
+              </b-select>
+            </b-field>
+            <button class="button" @click="monthShift(true)">🔺</button>
+            <button class="button" @click="monthShift(false)">🔻</button>
+          </div>
+          <div class="column is-4">
+            <label class="label">Select Day</label>
+            <button class="button" @click="dayShift(true)">🔺</button>
+            <button class="button" @click="dayShift(false)">🔻</button>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-full">
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th v-for="wd in heads">{{ wd.long }} [{{ wd.narrow }}]</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="week in weeks">
+                    <td v-for="day in week">
+                      <span
+                        v-if="day"
+                        class="tag"
+                        v-bind:class="{ 'is-primary': day.selected , 'is-warning': day.weekEnd && !day.selected }"
+                        >{{ day.title }}</span
+                      >
+                      <span v-else>&nbsp;</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-full">
+            <div class="table-container">
+              <table class="table is-fullwidth is-hoverable">
+                <tbody>
+                  <tr v-for="format in formats">
+                    <td>{{ format.token }}</td>
+                    <td>{{ format.string }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script src="https://unpkg.com/buefy/dist/components/select"></script>
+    <script src="./locale-calendar.dist.js"></script>
+  </body>
+</html>
